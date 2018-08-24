@@ -5,7 +5,6 @@
   "scripts": {
     "ng": "ng",
     "start": "node index.js",
-    "postinstall": "run-s build:client build:aot build:server",
     "build": "run-s build:client build:aot build:server",
     "build:client": "ng build -prod --build-optimizer --app 0",
     "build:aot": "ng build --aot --app 1",
@@ -30,6 +29,7 @@
     "@angular/router": "^5.2.9",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
+    "materialize-css": "^0.100.2",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
