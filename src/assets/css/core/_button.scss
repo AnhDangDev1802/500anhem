@@ -1,0 +1,37 @@
+.google-btn, .facebook-btn {
+  padding: 8px;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+.facebook-btn {
+  background-color: #095f9b;
+  margin-bottom: 8px;
+}
+
+.google-btn {
+  background-color: #F44336;
+}
+
+.btn-register, .btn-login {
+  height: unset;
+  padding: 4px 16px;
+  border-radius: 50px;
+  line-height: unset;
+
+}
+
+.btn-login {
+  background-color: #ff5722;
+}
+
+.btn-login:hover {
+  background-color: #ff5722 !important;
+}
+
+.btn-register {
+  background-color: #999999;
+}

@@ -1,0 +1,16 @@
+.white-input-group {
+  margin-bottom: 16px;
+  label {
+    font-weight: bold;
+  }
+  label, input {
+    color: #ffffff !important;
+  }
+  input {
+    border-bottom: 2px solid #ffffff !important;
+    box-shadow: none !important;
+  }
+  input:-webkit-autofill {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+}

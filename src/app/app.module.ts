@@ -8,7 +8,8 @@ import {AuthModule} from "./modules/auth/auth.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {APP_CONFIG, APP_CONFIG_CONST} from "./app.config";
 import {API_TYPE, API_TYPE_CONST} from "./modules/core/models/api-type";
-import {MaterialModule} from "./modules/material/material.module";
+// import {MaterialModule} from "./modules/material/material.module";
+// import {API_CONTROLLER, API_CONTROLLER_CONST} from "./modules/core/models/api-controller";
 
 @NgModule({
     imports: [
@@ -24,7 +25,7 @@ import {MaterialModule} from "./modules/material/material.module";
     ],
     providers: [
         {provide: APP_CONFIG, useValue: APP_CONFIG_CONST},
-        {provide: API_TYPE, useValue: API_TYPE_CONST},
+        {provide: API_TYPE, useValue: API_TYPE_CONST}
     ],
     bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs/Rx";
+import {TemplateService} from "./modules/core/services/template.service";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {Observable} from "rxjs/Rx";
 export class AppComponent {
   title = 'app';
 
-  constructor() {
+  constructor(public templateService:TemplateService) {
     Observable.of(null);
   }
 

@@ -5,18 +5,18 @@ import {CoreModule} from "../core/core.module";
 import {IndexComponent} from "./index/index.component";
 import { HomeComponent } from './home.component';
 import { DetailComponent } from './detail/detail.component';
-import {MaterialModule} from "../material/material.module";
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
     imports: [
         CoreModule,
-        MaterialModule,
         HomeRoutingModule
     ],
     declarations: [
         IndexComponent,
         HomeComponent,
-        DetailComponent
+        DetailComponent,
+        CategoryComponent
     ]
 })
 export class HomeModule {

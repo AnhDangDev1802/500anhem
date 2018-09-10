@@ -1,6 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
-*{
+* {
   margin: 0;
   padding: 0;
 }
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.content-wapper {
+  margin-top: calc(56px + 64px);
+}
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+}
+
+mat-sidenav {
+  position: fixed !important;
+  height: 100%;
+  width: 70%;
+}
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/css/core/text";
+@import "assets/css/core/input";
+@import "assets/css/core/detail";
+@import "assets/css/core/button";
+@import "assets/css/core/snackbar";
+@import "assets/css/auth";

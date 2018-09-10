@@ -1,0 +1,12 @@
+.content {
+  padding: 16px;
+  a{
+    color: rgb(255,87,34);
+  }
+  p,table {
+    video, img{
+      width: 100%;
+      height: unset;
+    }
+  }
+}

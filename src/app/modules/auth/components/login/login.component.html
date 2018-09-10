@@ -1,0 +1,30 @@
+<div class="auth-page">
+    <div class="auth-sector">
+        <div class="auth-container">
+            <h1>500AE</h1>
+            <form style="background: rgba(0,0,0,0.6);padding: 16px" [formGroup]="loginForm">
+                <div style="border-bottom: 1px solid #000000;">
+                    <div class="input-field white-input-group">
+                        <input [formControl]="loginForm.controls['username']" name="username" id="username"j placeholder="Username or email" type="text">
+                        <!--<label for="username">Username</label>-->
+                    </div>
+                    <div class="input-field white-input-group">
+                        <input [formControl]="loginForm.controls['password']" name="password" id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                    <div style="margin-bottom: 16px">
+                        <a class="waves-effect waves-light btn btn-login" (click)="onLogin()">Đăng nhập</a>
+                        <a class="waves-effect waves-light btn btn-register" [routerLink]="['/register']">Đăng kí</a>
+                    </div>
+                </div>
+                <div style="padding: 16px 0">
+                    <a class="facebook-btn">đăng nhập bằng facebook</a>
+                    <a class="google-btn">đăng nhập bằng google</a>
+                </div>
+                <!--<div class="terms">-->
+                <!--Qua việc đăng nhập bằng tài khoản,&nbsp;bạn đồng ý với các&nbsp;<a href="https://terms2.line.me/OXii_tos/sp?lang=vi&amp;country=vn" target="_blank" class="link">Điều khoản sử dụng</a>&nbsp;và&nbsp;<a href="https://terms2.line.me/OXii_pp/sp?lang=vi&amp;country=vn" target="_blank" class="link">Chính sách an toàn và bảo mật</a>&nbsp;của chúng tôi-->
+                <!--</div>-->
+            </form>
+        </div>
+    </div>
+</div>

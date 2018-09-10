@@ -1,0 +1,35 @@
+<div class="auth-page">
+    <div class="auth-sector">
+        <div class="auth-container">
+            <h1>500AE</h1>
+            <form style="background: rgba(0,0,0,0.6);padding: 16px" [formGroup]="registerForm">
+                <div>
+                    <div class="input-field white-input-group">
+                        <input [formControl]="registerForm.controls['username']" name="username" id="username" type="text">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field white-input-group">
+                        <input name="email" id="email" type="email" [formControl]="registerForm.controls['email']">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field white-input-group">
+                        <input [formControl]="registerForm.controls['user_pass']" name="user_pass" id="user_pass" type="password">
+                        <label for="user_pass">Password</label>
+                    </div>
+                    <div class="input-field white-input-group">
+                        <input [formControl]="registerForm.controls['display_name']" name="display_name"
+                               id="display_name" type="text">
+                        <label for="display_name">Display name</label>
+
+                        <input [formControl]="registerForm.controls['nonce']" name="nonce" id="nonce" type="hidden"/>
+                        <input [formControl]="registerForm.controls['notify']" name="notify" id="notify" type="hidden"/>
+                    </div>
+                    <div style="margin-bottom: 16px">
+                        <a class="waves-effect waves-light btn btn-login" (click)="onRegister()">Đăng kí</a>
+                        <a class="waves-effect waves-light btn btn-register" [routerLink]="['/login']">Đăng nhập</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
