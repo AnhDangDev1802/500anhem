@@ -3,6 +3,7 @@ import {User} from "../../models/user";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs/Rx";
+import {Auth} from "../../models/auth";
 
 @Component({
     selector: 'app-settings',
@@ -11,7 +12,7 @@ import {Subscription} from "rxjs/Rx";
 })
 export class SettingsComponent implements OnInit, OnDestroy {
     user:User;
-
+    auth: Auth;
     isChangeDisplayname:boolean = false;
 
     subscription = new Subscription();
@@ -23,7 +24,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
         const userSub = this.authService.user.subscribe((user:User)=> {
             this.user = user;
         });
-        this.subscription.add(userSub)
+        this.subscription.add(userSub);
+        this.auth = this.authService.getAuth();
     }
 
     changeDisplayname() {
