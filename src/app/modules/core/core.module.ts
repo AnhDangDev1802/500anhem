@@ -13,6 +13,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import {TemplateService} from "./services/template.service";
 import {API_CONTROLLER, API_CONTROLLER_CONST} from "./models/api-controller";
 import {PostNotFoundComponent} from "./components/post-notfound/post-notfound.component";
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 @NgModule({
     imports: [
@@ -31,7 +33,9 @@ import {PostNotFoundComponent} from "./components/post-notfound/post-notfound.co
         HeaderComponent,
         FeedComponent,
         LoadingComponent,
-        PostNotFoundComponent
+        PostNotFoundComponent,
+        SidenavComponent,
+        CategoryListComponent
     ],
     providers: [
         {provide: API_CONTROLLER, useValue: API_CONTROLLER_CONST},
@@ -44,7 +48,9 @@ import {PostNotFoundComponent} from "./components/post-notfound/post-notfound.co
         HeaderComponent,
         FeedComponent,
         LoadingComponent,
-        PostNotFoundComponent
+        PostNotFoundComponent,
+        SidenavComponent,
+        CategoryListComponent,
     ]
 })
 export class CoreModule {

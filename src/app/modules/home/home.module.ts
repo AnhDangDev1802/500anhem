@@ -6,10 +6,12 @@ import {IndexComponent} from "./index/index.component";
 import { HomeComponent } from './home.component';
 import { DetailComponent } from './detail/detail.component';
 import { CategoryComponent } from './category/category.component';
+import {MaterialModule} from "../material/material.module";
 
 @NgModule({
     imports: [
         CoreModule,
+        MaterialModule,
         HomeRoutingModule
     ],
     declarations: [

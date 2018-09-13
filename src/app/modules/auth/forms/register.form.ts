@@ -10,8 +10,9 @@ export class RegisterForm extends FormGroup {
             Validators.minLength(6),
             Validators.maxLength(20),
         ]));
+        this.addControl('user_pass_cfm', new FormControl(register.user_pass_cfm));
         this.addControl('email', new FormControl(register.email, [Validators.required, Validators.email]));
-        this.addControl('display_name', new FormControl(register.display_name, [Validators.required]));
+        this.addControl('display_name', new FormControl(register.display_name, [Validators.required, Validators.minLength(6),Validators.maxLength(16)]));
         this.addControl('nonce', new FormControl(register.nonce, [Validators.required]));
         this.addControl('notify', new FormControl(register.notify));
     }
@@ -41,8 +42,17 @@ export class RegisterForm extends FormGroup {
         if (this.controls['user_pass'].hasError('maxlength')) {
             return 'Password must 6 to 20 characters!'
         }
+        if (this.controls['user_pass_cfm'].value !== this.controls['user_pass'].value) {
+            return 'Confirm password is not valid!'
+        }
         if (this.controls['display_name'].hasError('required')) {
             return 'Display name is required!'
+        }
+        if (this.controls['display_name'].hasError('minlength')) {
+            return 'Display name must 6 to 15 characters!'
+        }
+        if (this.controls['display_name'].hasError('maxlength')) {
+            return 'Display name must 6 to 15 characters!'
         }
     }
 }

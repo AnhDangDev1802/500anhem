@@ -1,7 +1,7 @@
 <div class="auth-page">
     <div class="auth-sector">
         <div class="auth-container">
-            <h1>500AE</h1>
+            <a [routerLink]="['/']"><h1>500AE</h1></a>
             <form style="background: rgba(0,0,0,0.6);padding: 16px" [formGroup]="loginForm">
                 <div style="border-bottom: 1px solid #000000;">
                     <div class="input-field white-input-group">
@@ -13,8 +13,8 @@
                         <label for="password">Password</label>
                     </div>
                     <div style="margin-bottom: 16px">
-                        <a class="waves-effect waves-light btn btn-login" (click)="onLogin()">Đăng nhập</a>
-                        <a class="waves-effect waves-light btn btn-register" [routerLink]="['/register']">Đăng kí</a>
+                        <a class="waves-effect waves-light btn btn-primary" (click)="onLogin()">Đăng nhập</a>
+                        <a class="waves-effect waves-light btn btn-default" [routerLink]="['/register']">Đăng kí</a>
                     </div>
                 </div>
                 <div style="padding: 16px 0">

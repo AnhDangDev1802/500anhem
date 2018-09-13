@@ -23,9 +23,6 @@ mat-sidenav {
   width: 70%;
 }
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "assets/css/core/text";
-@import "assets/css/core/input";
-@import "assets/css/core/detail";
-@import "assets/css/core/button";
-@import "assets/css/core/snackbar";
+@import "assets/css/core/core";
+@import "assets/css/header";
 @import "assets/css/auth";

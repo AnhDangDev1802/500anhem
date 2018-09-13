@@ -1,0 +1,12 @@
+.sidenav-options {
+  a {
+    padding: 16px;
+    display: block;
+  }
+  li{
+    border-bottom: 1px solid #f1f2f3;
+  }
+  li:last-child{
+    border-bottom: none;
+  }
+}

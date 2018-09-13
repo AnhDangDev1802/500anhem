@@ -1,13 +1,35 @@
 a {
   text-decoration: none;
 }
-.text-white{
-  &, *{
+
+.text-white {
+  &, * {
     color: #ffffff !important;
   }
 }
-.text-black{
-  &, *{
+
+.main-color{
+  color: $site_color;
+}
+
+.weight-500 {
+  font-weight: 500;
+}
+
+.text-light-gray {
+  color: #909090;
+}
+
+.text-gray {
+  color: #565656 !important;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+
+.text-black {
+  &, * {
     color: #333333 !important;
   }
 }

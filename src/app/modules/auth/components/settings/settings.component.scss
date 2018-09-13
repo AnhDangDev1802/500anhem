@@ -1,0 +1,15 @@
+.info-header{
+  padding: 8px 16px;
+}
+.info-body{
+  background-color: #ffffff;
+}
+.list-info{
+  li{
+    padding: 16px;
+    border-bottom: 1px solid #f1f2f3;
+  }
+  li:last-child{
+    border-bottom: none;
+  }
+}

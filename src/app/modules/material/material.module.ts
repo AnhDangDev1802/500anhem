@@ -4,6 +4,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
     imports: [
@@ -11,14 +12,16 @@ import {MatSnackBarModule} from "@angular/material";
         MatSidenavModule,
         MatCheckboxModule,
         MatCardModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDialogModule
     ],
     exports: [
         MatToolbarModule,
         MatSidenavModule,
         MatCheckboxModule,
         MatCardModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDialogModule
     ]
 })
 export class MaterialModule {

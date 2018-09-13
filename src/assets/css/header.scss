@@ -3,6 +3,9 @@
   width: 100%;
   z-index: 1;
 }
+.header-toolbar{
+  background-color: $site_color;
+}
 
 .category-menu {
   height: unset;
@@ -18,7 +21,7 @@
         color: #555555;
         text-decoration: none;
         &.active {
-          color: #FF5722
+          color: $site_color
         }
         &.active:after {
           content: ' ';
@@ -28,7 +31,7 @@
           height: 4px;
           border-radius: 20px 20px 0 0;
           position: absolute;
-          background: #FF5722;
+          background: $site_color;
         }
       }
     }

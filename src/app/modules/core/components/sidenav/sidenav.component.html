@@ -1,0 +1,21 @@
+<div class="side-nav">
+    <div class="user-container" style="padding: 16px">
+        <ng-container *ngIf="user">
+            <img [src]="user.custom_avatar?user.custom_avatar:'/assets/images/default-avatar.png'" style="width: 50px;
+    vertical-align: middle;
+    border-radius: 50px;
+    height: 50px;
+    margin-right: 8px;
+    object-fit: cover;">
+            <span class="text-16 text-gray weight-500" *ngIf="user.display_name">{{user.display_name}}</span>
+        </ng-container>
+        <a *ngIf="!user" class="waves-effect waves-light btn btn-login" [routerLink]="['/login']">Đăng nhập</a>
+    </div>
+
+    <ul class="sidenav-options">
+        <li><a class="text-light-gray text-16" [routerLink]="['/bookmark']">Bài đã lưu</a></li>
+        <li><a class="text-light-gray text-16" [routerLink]="['/settings']">Cài đặt</a></li>
+        <li><a class="text-light-gray text-16" [routerLink]="['/introduced']">Giới thiệu</a></li>
+        <li><a class="text-light-gray text-16" (click)="logout()">Đăng xuất</a></li>
+    </ul>
+</div>

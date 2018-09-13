@@ -1,19 +1,12 @@
 <div class="header-container">
-    <mat-toolbar style="background: #FF5722; color: #ffffff">
+    <mat-toolbar class="header-toolbar text-white">
         <span>500AE</span>
         <span class="example-fill-remaining-space" style="flex: 1 1 auto"></span>
         <span class="material-icons" (click)="sidenav.toggle()">menu</span>
     </mat-toolbar>
-    <mat-toolbar class="category-menu">
-        <ul class="category-list" #categoryList>
-            <li *ngFor="let category of categories" [id]="'category_'+category.id" (click)="selectCategory($event)">
-                <a routerLinkActive="active" [routerLink]="['/c/'+category.slug]">{{category.name}}</a>
-            </li>
-        </ul>
-    </mat-toolbar>
 </div>
 <mat-sidenav-container>
     <mat-sidenav #sidenav [mode]="'over'" [position]="'end'">
-        Sidenav content
+        <app-sidenav></app-sidenav>
     </mat-sidenav>
 </mat-sidenav-container>

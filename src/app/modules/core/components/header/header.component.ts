@@ -4,14 +4,13 @@ import {ActivatedRoute, Router, NavigationStart} from "@angular/router";
 
 @Component({
     selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
     @ViewChild('categoryList', {read: ElementRef}) categoryList:ElementRef;
     categories:Array<any>;
 
-    constructor(private categoryService:CategoryService, private route:ActivatedRoute, private router:Router) {
+    constructor(private categoryService:CategoryService) {
     }
 
     ngOnInit() {

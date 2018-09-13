@@ -16,22 +16,21 @@
   background-color: #F44336;
 }
 
-.btn-register, .btn-login {
+.btn-primary, .btn-default{
   height: unset;
   padding: 4px 16px;
   border-radius: 50px;
   line-height: unset;
-
 }
 
-.btn-login {
-  background-color: #ff5722;
+.btn-primary, .btn-primary:focus{
+  background-color: $site_color;
 }
 
-.btn-login:hover {
-  background-color: #ff5722 !important;
+.btn-primary:hover{
+  background-color: $site_color !important;
 }
 
-.btn-register {
+.btn-default{
   background-color: #999999;
 }

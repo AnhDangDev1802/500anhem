@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="setting-container" style="margin-top: 56px; background-color: #f1f2f3">
+    <div class="setting-avatar" style="text-align: center; padding: 16px">
+        <img [src]="user.custom_avatar?user.custom_avatar:'/assets/images/default-avatar.png'"
+             style="max-width: 150px;border-radius: 150px;">
+    </div>
+    <div class="setting-info">
+        <div class="info-panel">
+            <div class="info-header text-light-gray">
+                <span>Thông tin chung</span>
+            </div>
+            <div class="info-body">
+                <ul class="list-info">
+                    <li>
+                        <a (click)="changeDisplayname()" class="text-light-gray"> Tên hiển thị
+                            <span *ngIf="!isChangeDisplayname" style="float: right;" class="main-color weight-500">Đặng Anh</span>
+                            <span *ngIf="isChangeDisplayname" style="float: right;" class=" text-light-gray weight-500">{{numberChar}}/16</span>
+                        </a>
+                        <div class="input-field" *ngIf="isChangeDisplayname" style="display: block">
+                            <input (keyup)="displayNameOnChange($event)" name="display_name" id="display_name" type="text">
+                            <a class="waves-effect waves-light btn btn-primary">LƯU</a>
+                            <a class="waves-effect waves-light btn btn-default" (click)="cancelChangeDisplayname()">HỦY</a>
+                        </div>
+                    </li>
+                    <li><a class="text-light-gray"> Email <span style="float: right;" class="main-color weight-500">anhdangdev@gmail.com</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-panel" style="margin-top:16px;">
+            <div class="info-header text-light-gray" style="padding: 8px 16px;">
+                <span>Tài khoản kết nối</span>
+            </div>
+            <div class="info-body" style="background-color: #ffffff; padding: 16px">
+                <ul>
+                    <li><a class="text-light-gray"> Facebook <span style="float: right;"
+                                                                   class="weight-500">Chưa kết nối</span></a></li>
+                    <li><a class="text-light-gray"> Google <span style="float: right;" class="main-color weight-500">Đã kết nối</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
