@@ -56,7 +56,6 @@ export class AuthService {
                     let user = new User();
                     user.setObject(res);
                     if (user.id == this.auth.id) {
-                        console.log(user);
                         this.user.next(user);
                     }
 
@@ -65,6 +64,24 @@ export class AuthService {
         } catch (e) {
             console.error(e);
             return Observable.of(null);
+        }
+    }
+
+    changeAvatar(formData:FormData) {
+        try {
+            let headers = new HttpHeaders();
+            if (this.auth.token) {
+                headers = headers.append('Authorization', 'Bearer ' + this.auth.token)
+            } else {
+                return Observable.of(null);
+            }
+            return this.http.post(`${this.coreService.config.API_ENDPOINT}wp-json/wp/v2/wp_rest_upload_avatar`, formData, {headers:headers})
+                .map((avatar:any)=>{
+                    return avatar
+                })
+        } catch (e) {
+            console.error(e);
+            return null
         }
     }
 

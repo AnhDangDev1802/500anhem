@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
                     console.log(err)
                 });
         } else {
+
             this.snackbar.open(this.registerForm.getError(), null, {
                 duration: 1500,
                 verticalPosition: 'top',

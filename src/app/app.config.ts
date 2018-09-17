@@ -4,6 +4,7 @@ export interface AppConfig {
     API_ENDPOINT:string;
 }
 export const APP_CONFIG_CONST:AppConfig = {
-    API_ENDPOINT: 'http://wordpressdemo.test/'
+    // API_ENDPOINT: 'http://wordpressdemo.test/'
     // API_ENDPOINT: 'http://www.anhemsaigon.com/'
+    API_ENDPOINT: 'http://www.500anhem.net/'
 };

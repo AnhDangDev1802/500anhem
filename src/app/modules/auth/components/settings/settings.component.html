@@ -1,8 +1,14 @@
 <app-header></app-header>
 <div class="setting-container" style="margin-top: 56px; background-color: #f1f2f3">
     <div class="setting-avatar" style="text-align: center; padding: 16px;position: relative">
-        <img [src]="user.custom_avatar?user.custom_avatar:'/assets/images/default-avatar.png'"
-             style="max-width: 150px;border-radius: 150px; vertical-align: middle">
+        <img #avatarImg [src]="user.custom_avatar?user.custom_avatar:'/assets/images/default-avatar.png'"
+             style="width: 150px;
+    border-radius: 150px;
+    vertical-align: middle;
+    height: 150px;
+    object-fit: cover;">
+        <input type="file" [hidden]="true" #avatarUpload (change)="onAvatarUpload($event)" />
+        <canvas [hidden]="true" #avatarCanvas></canvas>
         <a style="
         background-color: #afafaf;
     border-radius: 50px;
@@ -11,7 +17,7 @@
     bottom: 16px;
     left: calc( 50% + 26px );
     padding: 10px 8px;
-"><i class="material-icons text-white" style="vertical-align: middle;line-height: 0">photo_camera</i></a>
+"><i (click)="openFileDialog()" class="material-icons text-white" style="vertical-align: middle;line-height: 0">photo_camera</i></a>
     </div>
     <div class="setting-info">
         <div class="info-panel">

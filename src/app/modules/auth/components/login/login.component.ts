@@ -17,7 +17,7 @@ import {Subscription} from "rxjs/Rx";
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-    loginForm = new LoginForm(new Login('hellokitty', 'Abc123!@'));
+    loginForm = new LoginForm(new Login('mrhacker111', 'DangAnhHacker1'));
     subscription = new Subscription();
 
     constructor(private authService:AuthService,

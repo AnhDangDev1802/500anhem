@@ -9,10 +9,11 @@
     object-fit: cover;">
             <span class="text-16 text-gray weight-500" *ngIf="user.display_name">{{user.display_name}}</span>
         </ng-container>
-        <a *ngIf="!user" class="waves-effect waves-light btn btn-login" [routerLink]="['/login']">Đăng nhập</a>
+        <a *ngIf="!user" class="waves-effect waves-light btn btn-primary" [routerLink]="['/login']">Đăng nhập</a>
     </div>
 
     <ul class="sidenav-options">
+        <li><a class="text-light-gray text-16" [routerLink]="['/post-create']">Đăng bài</a></li>
         <li><a class="text-light-gray text-16" [routerLink]="['/bookmark']">Bài đã lưu</a></li>
         <li><a class="text-light-gray text-16" [routerLink]="['/settings']">Cài đặt</a></li>
         <li><a class="text-light-gray text-16" [routerLink]="['/introduced']">Giới thiệu</a></li>

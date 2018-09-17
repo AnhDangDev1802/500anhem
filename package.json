@@ -27,6 +27,7 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/platform-server": "^5.2.9",
     "@angular/router": "^5.2.9",
+    "@tinymce/tinymce-angular": "^2.0.1",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
     "materialize-css": "^0.100.2",

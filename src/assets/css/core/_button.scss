@@ -12,25 +12,31 @@
   margin-bottom: 8px;
 }
 
+.btn-post {
+  float: right;
+  color: $site_color;
+  font-weight: 500;
+}
+
 .google-btn {
   background-color: #F44336;
 }
 
-.btn-primary, .btn-default{
+.btn-primary, .btn-default {
   height: unset;
   padding: 4px 16px;
   border-radius: 50px;
   line-height: unset;
 }
 
-.btn-primary, .btn-primary:focus{
+.btn-primary, .btn-primary:focus {
   background-color: $site_color;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: $site_color !important;
 }
 
-.btn-default{
+.btn-default {
   background-color: #999999;
 }

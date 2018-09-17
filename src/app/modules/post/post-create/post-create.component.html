@@ -1,0 +1,14 @@
+<div class="post-create">
+    <div class="post-create-header">
+        <span class="text-light-gray">
+            <a [routerLink]="['/']" class="material-icons main-color" style="vertical-align: middle">arrow_back</a> Tạo bài viết
+        </span>
+        <a class="btn-post" (click)="postCreateClick()">Đăng bài</a>
+    </div>
+    <div class="modal-body">
+        <app-upload-thumb (getThumbnail)="getPostThumbnail($event)"></app-upload-thumb>
+        <post-upload-title (getTitle)="getPostTitle($event)"></post-upload-title>
+        <post-upload-excerpt (getExcerpt)="getPostExcerpt($event)"></post-upload-excerpt>
+        <post-upload-content (getContent)="getPostContent($event)"></post-upload-content>
+    </div>
+</div>

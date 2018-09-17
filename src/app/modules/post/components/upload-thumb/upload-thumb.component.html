@@ -1,0 +1,15 @@
+<div *ngIf="!result" class="post-thumbnail"
+     style="width: 100%;height: 250px;background: #f1f2f3;border: 6px dashed #d1d2d3;display: table">
+    <div (click)="openFileDialog()" style="
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+">
+        <i style="display: block;font-size: 50px" class="material-icons text-light-gray">photo_camera</i>
+        <span class="text-light-gray">Upload thumbnail</span>
+    </div>
+</div>
+<input type="file" [hidden]="true" #thumbUpload (change)="onThumbUpload($event)"/>
+<img #imagePreview (click)="openFileDialog()" *ngIf="result" [src]="result" style="width: 100%;
+    height: 250px;
+    object-fit: cover;" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg">

@@ -1,4 +1,4 @@
-<mat-toolbar class="category-menu" style="margin-top:56px;">
+<mat-toolbar class="category-menu" style="margin-top:56px;padding: 0;height: unset">
   <ul class="category-list" #categoryList>
     <li *ngFor="let category of categories" [id]="'category_'+category.id" (click)="selectCategory($event)">
       <a routerLinkActive="active" [routerLink]="['/c/'+category.slug]">{{category.name}}</a>
