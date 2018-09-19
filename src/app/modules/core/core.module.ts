@@ -15,6 +15,8 @@ import {API_CONTROLLER, API_CONTROLLER_CONST} from "./models/api-controller";
 import {PostNotFoundComponent} from "./components/post-notfound/post-notfound.component";
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
+import {SafeHtmlPipe} from "./pipes/safe-html.pipe";
+import {RunScriptsDirective} from "./directives/run-scripts.directive";
 
 @NgModule({
     imports: [
@@ -35,7 +37,9 @@ import { CategoryListComponent } from './components/category-list/category-list.
         LoadingComponent,
         PostNotFoundComponent,
         SidenavComponent,
-        CategoryListComponent
+        CategoryListComponent,
+        SafeHtmlPipe,
+        RunScriptsDirective
     ],
     providers: [
         {provide: API_CONTROLLER, useValue: API_CONTROLLER_CONST},
@@ -51,6 +55,8 @@ import { CategoryListComponent } from './components/category-list/category-list.
         PostNotFoundComponent,
         SidenavComponent,
         CategoryListComponent,
+        SafeHtmlPipe,
+        RunScriptsDirective
     ]
 })
 export class CoreModule {

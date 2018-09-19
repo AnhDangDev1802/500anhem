@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output, OnDestroy, AfterViewInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, OnDestroy} from '@angular/core';
 import {PostService} from "../../services/post.service";
 import {Image} from "../../models/image";
 

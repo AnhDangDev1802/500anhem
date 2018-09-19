@@ -7,7 +7,7 @@
     vertical-align: middle;
     height: 150px;
     object-fit: cover;">
-        <input type="file" [hidden]="true" #avatarUpload (change)="onAvatarUpload($event)" />
+        <input type="file" [hidden]="true" #avatarUpload (change)="onAvatarUpload($event)"/>
         <canvas [hidden]="true" #avatarCanvas></canvas>
         <a style="
         background-color: #afafaf;
@@ -28,16 +28,20 @@
                 <ul class="list-info">
                     <li>
                         <a (click)="changeDisplayname()" class="text-light-gray"> Tên hiển thị
-                            <span *ngIf="!isChangeDisplayname && user.display_name" style="float: right;" class="main-color weight-500">{{user.display_name}}</span>
-                            <span *ngIf="isChangeDisplayname" style="float: right;" class=" text-light-gray weight-500">{{numberChar}}/16</span>
+                            <span *ngIf="!isChangeDisplayname && user.display_name" style="float: right;"
+                                  class="main-color weight-500">{{user.display_name}}</span>
+                            <span *ngIf="isChangeDisplayname" style="float: right;" class=" text-light-gray weight-500">{{numberChar}}/{{maxLength}}</span>
                         </a>
                         <div class="input-field" *ngIf="isChangeDisplayname" style="display: block">
-                            <input (keyup)="displayNameOnChange($event)" name="display_name" id="display_name" type="text">
+                            <input (keyup)="displayNameOnChange($event)" [(ngModel)]="displayName" name="display_name"
+                                   id="display_name" type="text">
                             <a class="waves-effect waves-light btn btn-primary">LƯU</a>
-                            <a class="waves-effect waves-light btn btn-default" (click)="cancelChangeDisplayname()">HỦY</a>
+                            <a class="waves-effect waves-light btn btn-default"
+                               (click)="cancelChangeDisplayname()">HỦY</a>
                         </div>
                     </li>
-                    <li><a class="text-light-gray"> Email <span *ngIf="auth && auth.user_email" style="float: right;" class="main-color weight-500">{{auth.user_email}}</span></a>
+                    <li><a class="text-light-gray"> Email <span *ngIf="auth && auth.user_email" style="float: right;"
+                                                                class="main-color weight-500">{{auth.user_email}}</span></a>
                     </li>
                 </ul>
             </div>

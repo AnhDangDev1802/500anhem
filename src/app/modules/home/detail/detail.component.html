@@ -1,3 +1,8 @@
-<div class="content-wapper" *ngIf="post">
-    <div class="content" [innerHTML]="post.content.rendered"></div>
+<div *ngIf="post">
+    <img style="max-width: 100%" *ngIf="post.thumbnail && post.thumbnail.source_url" [src]="post.thumbnail.source_url" />
+    <div style="padding: 0 16px">
+        <h1 class="weight-500" style="font-size: 36px;" [innerHTML]="post.title.rendered"></h1>
+        <h2 class="weight-500" style="font-size: 18px;" [innerHTML]="post.excerpt.rendered"></h2>
+    </div>
+    <div class="content" [innerHTML]="post.content.rendered | safeHtml" runScripts></div>
 </div>

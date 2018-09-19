@@ -1,11 +1,11 @@
-<div class="header-container">
+<div class="header-container" #headerContainer>
     <mat-toolbar class="header-toolbar text-white">
         <a [routerLink]="['/']">500AE</a>
         <span class="example-fill-remaining-space" style="flex: 1 1 auto"></span>
         <span class="material-icons" (click)="sidenav.toggle()">menu</span>
     </mat-toolbar>
 </div>
-<mat-sidenav-container>
+<mat-sidenav-container style="z-index: 3">
     <mat-sidenav #sidenav [mode]="'over'" [position]="'end'">
         <app-sidenav></app-sidenav>
     </mat-sidenav>

@@ -1,12 +1,16 @@
 <mat-card *ngIf="post" class="feed-card">
-    <img mat-card-image class="feed-thumbnail" src="{{post.thumbnail.source_url}}" alt="{{post.title.rendered}}"/>
     <mat-card-content class="feed-description">
-        <h2 class="text-black"><a title="{{post.title.rendered}}" [routerLink]="['/'+post.slug]" [innerHTML]="post.title.rendered"></a></h2>
+        <a class="text-black weight-500 feed-title" title="{{post.title.rendered}}" [routerLink]="['/'+post.slug]"
+           [innerHTML]="post.title.rendered"></a>
     </mat-card-content>
+    <div class="feed-thumb">
+        <img src="{{post.thumbnail.source_url}}"
+             alt="{{post.title.rendered}}"/>
+    </div>
 </mat-card>
 <!--<div class="feed" >-->
-    <!--<img src="{{post.thumbnail.source_url}}" style="max-width:100%;"/>-->
-    <!--<div class="">-->
-        <!---->
-    <!--</div>-->
+<!--<img src="{{post.thumbnail.source_url}}" style="max-width:100%;"/>-->
+<!--<div class="">-->
+<!---->
+<!--</div>-->
 <!--</div>-->

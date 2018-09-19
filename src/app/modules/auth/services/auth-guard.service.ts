@@ -13,6 +13,7 @@ export class AuthGuardService implements CanActivate {
         if (this.authService.getAuth()) {
             return true;
         }
+        console.log(route.url);
         this.router.navigate(['/login']);
         return null;
     }

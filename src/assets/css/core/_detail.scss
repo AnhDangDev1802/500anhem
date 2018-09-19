@@ -1,10 +1,19 @@
 .content {
   padding: 16px;
-  a{
-    color: rgb(255,87,34);
+  figure {
+    margin-left: -16px;
+    margin-right: -16px;
+    img {
+      width: unset;
+      height: unset;
+      max-width: 100%;
+    }
   }
-  p,table {
-    video, img{
+  a {
+    color: rgb(255, 87, 34);
+  }
+  p, table {
+    video, img {
       width: 100%;
       height: unset;
     }

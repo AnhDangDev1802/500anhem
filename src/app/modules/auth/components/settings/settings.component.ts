@@ -12,52 +12,38 @@ import {TemplateService} from "../../../core/services/template.service";
     styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit, OnDestroy {
-    user:User;
-    auth: Auth;
-    isChangeDisplayname:boolean = false;
-
-    subscription = new Subscription();
-
-    constructor(private authService:AuthService, private templateService: TemplateService, private router:Router) {
-    }
-
-    ngOnInit() {
-        const userSub = this.authService.user.subscribe((user:User)=> {
-            this.user = user;
-        });
-        this.subscription.add(userSub);
-        this.auth = this.authService.getAuth();
-    }
-
-    changeDisplayname() {
-        this.isChangeDisplayname = true;
-    }
-
-    cancelChangeDisplayname() {
-        this.isChangeDisplayname = false;
-        this.numberChar = 0;
-    }
-
-    numberChar:number = 0;
-
-    displayNameOnChange($event) {
-        this.numberChar = $event.target.value.length;
-    }
-
-    ngOnDestroy():void {
-        this.subscription.unsubscribe();
-    }
 
     @ViewChild('avatarUpload') avatarUpload:ElementRef;
     @ViewChild('avatarCanvas') avatarCropCanvas:ElementRef;
     @ViewChild('avatarImg') avatarImg:ElementRef;
 
-    openFileDialog(){
+    user:User;
+    auth:Auth;
+    numberChar:number = 0;
+    maxLength:number = 16;
+    displayName:string = '';
+    isChangeDisplayname:boolean = false;
+    subscription = new Subscription();
+
+    constructor(private authService:AuthService, private templateService:TemplateService, private router:Router) {
+    }
+
+    ngOnInit() {
+        const userSub = this.authService.user.subscribe((user:User)=> {
+            this.user = user;
+            this.displayName = user.display_name;
+            this.numberChar = this.displayName.length;
+        });
+        this.subscription.add(userSub);
+        this.auth = this.authService.getAuth();
+    }
+
+    openFileDialog() {
         this.avatarUpload.nativeElement.click();
     }
 
     onAvatarUpload(event) {
-        this.templateService.isLoading = true;
+        this.templateService.loading.next(true);
         let files = event.target.files;
         let image = new Image();
         const canvas = this.avatarCropCanvas.nativeElement;
@@ -88,16 +74,41 @@ export class SettingsComponent implements OnInit, OnDestroy {
                 this.avatarImg.nativeElement.src = canvas.toDataURL();
                 canvas.toBlob((result:Blob) => {
                     let formData = new FormData();
-                    formData.append('file', result,files[0].name);
+                    formData.append('file', result, files[0].name);
                     formData.append('description', 'change avatar');
                     this.authService.changeAvatar(formData)
-                        .subscribe(()=>{
-                            this.templateService.isLoading = false;
-                        },err=>{
-                            this.templateService.isLoading = false;
+                        .subscribe(()=> {
+                            this.templateService.loading.next(false);
+                        }, err=> {
+                            this.templateService.loading.next(false);
                         });
                 });
             };
         }
+    }
+
+    onChangeDisplayName() {
+        // this.authService.changeDisplayname()
+    }
+
+    changeDisplayname() {
+        this.isChangeDisplayname = true;
+    }
+
+    cancelChangeDisplayname() {
+        this.isChangeDisplayname = false;
+        this.numberChar = 0;
+    }
+
+    displayNameOnChange($event) {
+        this.numberChar = $event.target.value.length;
+        if (this.numberChar > this.maxLength) {
+            this.displayName = this.displayName.slice(0, this.maxLength);
+            this.numberChar = this.maxLength;
+        }
+    }
+
+    ngOnDestroy():void {
+        this.subscription.unsubscribe();
     }
 }

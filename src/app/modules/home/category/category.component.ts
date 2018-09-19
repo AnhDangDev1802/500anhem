@@ -12,30 +12,18 @@ import {TemplateService} from "../../core/services/template.service";
     styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-    isLoading:boolean = true;
     posts:Array<Post> = undefined;
+    category:Category;
 
-    constructor(private route:ActivatedRoute,
-                private categoryService:CategoryService,
-                private templateService:TemplateService,
-                private postService:PostService) {
+    constructor(private route:ActivatedRoute, private templateService:TemplateService) {
     }
 
     ngOnInit() {
-        this.route.params.subscribe(params=> {
-            this.templateService.isLoading = true;
-            this.categoryService.getCategoryBySlug(params.categorySlug)
-                .subscribe((category:Category)=> {
-                    if (category) {
-                        this.postService.getPostsByQuery({categories: category.id})
-                            .subscribe((posts)=> {
-                                this.posts = posts;
-                                this.templateService.isLoading = false;
-                            })
-                    } else {
-                        this.templateService.isLoading = false;
-                    }
-                })
+        this.route.data.subscribe((data:any)=> {
+            if (data.response) {
+                this.posts = data.response.posts;
+                this.category = data.response.category;
+            }
         });
     }
 

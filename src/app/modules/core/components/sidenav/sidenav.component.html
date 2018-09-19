@@ -13,10 +13,18 @@
     </div>
 
     <ul class="sidenav-options">
-        <li><a class="text-light-gray text-16" [routerLink]="['/post-create']">Đăng bài</a></li>
-        <li><a class="text-light-gray text-16" [routerLink]="['/bookmark']">Bài đã lưu</a></li>
-        <li><a class="text-light-gray text-16" [routerLink]="['/settings']">Cài đặt</a></li>
-        <li><a class="text-light-gray text-16" [routerLink]="['/introduced']">Giới thiệu</a></li>
-        <li><a class="text-light-gray text-16" (click)="logout()">Đăng xuất</a></li>
+        <li><a class="text-light-gray text-16" [routerLink]="['/post-create']">
+            <i class="material-icons" style="float: left;margin-right: 16px">edit</i> Đăng bài
+        </a></li>
+        <li><a class="text-light-gray text-16" [routerLink]="['/bookmark']">
+            <i class="material-icons" style="float: left;margin-right: 16px">bookmark</i> Bài đã lưu
+        </a></li>
+        <li><a class="text-light-gray text-16" [routerLink]="['/settings']">
+            <i class="material-icons" style="float: left;margin-right: 16px">settings</i> Cài đặt
+        </a></li>
+        <!--<li><a class="text-light-gray text-16" [routerLink]="['/introduced']">Giới thiệu</a></li>-->
+        <li *ngIf="authService.getAuth() && authService.getAuth().token"><a class="text-light-gray text-16" (click)="logout()">
+            <i class="material-icons" style="float: left;margin-right: 16px">exit_to_app</i> Đăng xuất
+        </a></li>
     </ul>
 </div>

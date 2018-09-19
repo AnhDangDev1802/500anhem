@@ -7,6 +7,8 @@ import { HomeComponent } from './home.component';
 import { DetailComponent } from './detail/detail.component';
 import { CategoryComponent } from './category/category.component';
 import {MaterialModule} from "../material/material.module";
+import { BookmarkComponent } from './bookmark/bookmark.component';
+import {CategoryResolve} from "./category/category.resolve";
 
 @NgModule({
     imports: [
@@ -18,7 +20,11 @@ import {MaterialModule} from "../material/material.module";
         IndexComponent,
         HomeComponent,
         DetailComponent,
-        CategoryComponent
+        CategoryComponent,
+        BookmarkComponent
+    ],
+    providers: [
+        CategoryResolve
     ]
 })
 export class HomeModule {

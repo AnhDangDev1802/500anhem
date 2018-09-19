@@ -32,13 +32,13 @@ export class RegisterComponent implements OnInit {
 
     onRegister() {
         if (this.registerForm.valid) {
-            this.templateService.isLoading = true;
+            this.templateService.loading.next(true);
             this.authService.register(this.registerForm.getObject())
                 .subscribe((res:any)=> {
-                    this.templateService.isLoading = false;
+                    this.templateService.loading.next(false);
                     this.router.navigate(['/login']);
                 }, err=>{
-                    this.templateService.isLoading = false;
+                    this.templateService.loading.next(false);
                     console.log(err)
                 });
         } else {

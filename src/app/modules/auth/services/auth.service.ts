@@ -75,9 +75,25 @@ export class AuthService {
             } else {
                 return Observable.of(null);
             }
-            return this.http.post(`${this.coreService.config.API_ENDPOINT}wp-json/wp/v2/wp_rest_upload_avatar`, formData, {headers:headers})
-                .map((avatar:any)=>{
+            return this.http.post(`${this.coreService.config.API_ENDPOINT}wp-json/wp/v2/wp_rest_upload_avatar`, formData, {headers: headers})
+                .map((avatar:any)=> {
                     return avatar
+                })
+        } catch (e) {
+            console.error(e);
+            return null
+        }
+    }
+
+    changeDisplayname(displayname:string) {
+        try {
+            let headers = new HttpHeaders();
+            if (this.auth && this.auth.token) {
+                headers = headers.append('Authorization', 'Bearer ' + this.auth.token);
+            }
+            return this.http.post(`${this.coreService.config.API_ENDPOINT}wp-json/wp/v2/users/${this.auth.id}`, {name: displayname, nickname: displayname}, {headers: headers})
+                .map((res:any)=> {
+                    return res;
                 })
         } catch (e) {
             console.error(e);

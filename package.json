@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node index.js",
+    "postinstall": "run-s build:client build:aot build:server",
     "build": "run-s build:client build:aot build:server",
     "build:client": "ng build -prod --build-optimizer --app 0",
     "build:aot": "ng build --aot --app 1",

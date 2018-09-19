@@ -29,7 +29,7 @@ export class UploadThumbComponent implements OnInit {
     onThumbUpload(event) {
         let files = event.target.files;
         if (files && files.length > 0) {
-            this.templateService.isLoading = true;
+            this.templateService.loading.next(true);
             let reader = new FileReader();
             reader.readAsDataURL(files[0]);
             reader.onload = () => {
@@ -38,9 +38,9 @@ export class UploadThumbComponent implements OnInit {
                 this.postService.uploadImage(files[0])
                     .subscribe((result:Image)=> {
                         this.getThumbnail.emit(result);
-                        this.templateService.isLoading = false;
+                        this.templateService.loading.next(false);
                     }, error=> {
-                        this.templateService.isLoading = false;
+                        this.templateService.loading.next(false);
                         console.log(error);
                     });
             };

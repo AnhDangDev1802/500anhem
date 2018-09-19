@@ -1,15 +1,38 @@
-import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, OnDestroy} from '@angular/core';
 import {CategoryService} from "../../services/category.service";
+import {Observable, Subscription} from "rxjs/Rx";
+import {CoreService} from "../../services/core.service";
 
 @Component({
     selector: 'app-category-list',
-    templateUrl: './category-list.component.html'
+    templateUrl: './category-list.component.html',
+    styleUrls: ['./category-list.component.scss']
 })
-export class CategoryListComponent implements OnInit {
+export class CategoryListComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('categoryList', {read: ElementRef}) categoryList:ElementRef;
-    categories:Array<any>;
+    @ViewChild('categoryMenu', {read: ElementRef}) categoryMenu:ElementRef;
 
-    constructor(private categoryService:CategoryService) {
+    categories:Array<any>;
+    subscription = new Subscription();
+
+    constructor(private categoryService:CategoryService, private coreService: CoreService) {
+    }
+
+    ngAfterViewInit():void {
+        if (this.coreService.isClient()){
+            const headerElm = this.categoryMenu.nativeElement;
+            let oldOffset = window.scrollY;
+            let length = 56;
+            const eventSub = Observable.fromEvent(window, 'scroll')
+                .debounceTime(8)
+                .subscribe(()=> {
+                    length -= window.scrollY - oldOffset;
+                    oldOffset = window.scrollY;
+                    length = length > 56 ? 56 : length < 0 ? 0 : length;
+                    headerElm.style.top = `${length}px`;
+                });
+            this.subscription.add(eventSub);
+        }
     }
 
     ngOnInit() {
@@ -17,22 +40,27 @@ export class CategoryListComponent implements OnInit {
             .subscribe((categories)=> {
                 if (categories) {
                     this.categories = categories;
-                    setTimeout(()=> {
-                        let element = document.getElementsByClassName('active');
-                        if (this.categoryList && element.length > 0) {
-                            let bound = element[0].getBoundingClientRect();
-                            this.categoryList.nativeElement.scrollLeft = this.categoryList.nativeElement.scrollLeft + bound.left - 16 - (window.innerWidth / 3);
-                        }
-                    }, 20);
+                    if (this.coreService.isClient()){
+                        setTimeout(()=> {
+                            let element = document.getElementsByClassName('active');
+                            if (this.categoryList && element.length > 0) {
+                                let bound = element[0].getBoundingClientRect();
+                                this.categoryList.nativeElement.scrollLeft = this.categoryList.nativeElement.scrollLeft + bound.left - 16 - (window.innerWidth / 3);
+                            }
+                        }, 20);
+                    }
                 }
             });
     }
 
     selectCategory(e) {
-        if (this.categoryList) {
+        if (this.categoryList && this.coreService.isClient()) {
             let bound = e.target.getBoundingClientRect();
             this.categoryList.nativeElement.scrollLeft = this.categoryList.nativeElement.scrollLeft + bound.left - 16 - (window.innerWidth / 3);
         }
     }
 
+    ngOnDestroy():void {
+        this.subscription.unsubscribe();
+    }
 }

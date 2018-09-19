@@ -28,7 +28,7 @@ export class PostService {
 
     getPostBySlug(slug:string):Observable<Post> {
         try {
-            return this.httpClient.get(this.coreService.getApi(this.coreService.API_TYPE.POST), {params: {slug: slug, _embeded:true} as any})
+            return this.httpClient.get(this.coreService.getApi(this.coreService.API_TYPE.POST), {params: {slug: slug, _embed:true} as any})
                 .map((body:Array<any>)=> {
                     if (body && body.length > 0) {
                         let post = new Post();

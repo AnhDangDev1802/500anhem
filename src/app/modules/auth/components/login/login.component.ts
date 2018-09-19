@@ -17,7 +17,7 @@ import {Subscription} from "rxjs/Rx";
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-    loginForm = new LoginForm(new Login('mrhacker111', 'DangAnhHacker1'));
+    loginForm = new LoginForm(new Login('AnhDang1802', 'DangAnhHacker1'));
     subscription = new Subscription();
 
     constructor(private authService:AuthService,
@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     onLogin() {
-        this.templateService.isLoading = true;
+        // this.templateService.isLoading = true;
+        this.templateService.loading.next(true);
         try {
             const loginSub = this.authService.login(this.loginForm.getObject())
                 .subscribe((auth:Auth)=> {
@@ -38,11 +39,11 @@ export class LoginComponent implements OnInit, OnDestroy {
                         const getUserSub = this.authService.getUserById(auth.id)
                             .subscribe((user:User)=> {
                                 if (user && user.id) {
-                                    this.templateService.isLoading = false;
+                                    this.templateService.loading.next(false);
                                     this.router.navigate(['/']);
                                 }
                             }, err=> {
-                                this.templateService.isLoading = false;
+                                this.templateService.loading.next(false);
                                 this.snackbar.open('Lỗi đăng nhập!', null, {
                                     duration: 1500,
                                     verticalPosition: 'top',
@@ -52,14 +53,14 @@ export class LoginComponent implements OnInit, OnDestroy {
                         this.subscription.add(getUserSub);
                         return;
                     }
-                    this.templateService.isLoading = false;
+                    this.templateService.loading.next(false);
                     this.snackbar.open('Username hoặc password không đúng!', null, {
                         duration: 1500,
                         verticalPosition: 'top',
                         panelClass: 'login-alert'
                     })
                 }, err=> {
-                    this.templateService.isLoading = false;
+                    this.templateService.loading.next(false);
                     this.snackbar.open('Username hoặc password không đúng!', null, {
                         duration: 1500,
                         verticalPosition: 'top',
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 });
             this.subscription.add(loginSub);
         } catch (e) {
-            this.templateService.isLoading = false;
+            this.templateService.loading.next(false);
         }
     }
 
